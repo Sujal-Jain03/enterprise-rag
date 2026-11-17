@@ -1,0 +1,17 @@
+# Secrets — never commit
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Data & models (large / regenerable — not part of the repo)
+DATA/
+processed_data/
+models/
+
+# macOS junk
+.DS_Store
+__MACOSX/

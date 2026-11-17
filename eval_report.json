@@ -1,0 +1,319 @@
+{
+  "aggregate": {
+    "abstention_rate": 1.0,
+    "answer_abstention_rate": 1.0,
+    "answers_rate": 1.0,
+    "citation_valid_rate": 1.0,
+    "faithful_rate": 0.8571,
+    "keyword_hit": 0.9375,
+    "latency_max_s": 42.55,
+    "latency_mean_s": 14.291,
+    "latency_median_s": 13.25,
+    "mrr": 0.9375,
+    "n_judged": 7,
+    "ndcg_at_5": 0.8586,
+    "recall_at_5": 1.0
+  },
+  "eval_set_version": 1,
+  "n_in_corpus": 8,
+  "n_out_of_corpus": 2,
+  "n_questions": 10,
+  "results": [
+    {
+      "answer": "Kubernetes\u202fHorizontal\u202fPod\u202fAutoscaler continuously watches resource metrics (e.g., CPU utilization) from the Metrics Server, compares the current values to the target thresholds you define, and then adjusts the replica count of the referenced Deployment/ReplicaSet/ReplicationController accordingly. When the observed metric exceeds the target, HPA increments the number of pods (up to the\u202fmaxReplicas\u202fyou set); when the metric falls below the target, it decrements the pods (down to\u202fminReplicas)\u202f[1][2].",
+      "answers_question": true,
+      "citations": {
+        "all_valid": true,
+        "cited": [
+          1,
+          2
+        ],
+        "has_citation": true
+      },
+      "error": null,
+      "faithful": true,
+      "found": true,
+      "id": "q01",
+      "judge_error": null,
+      "judge_reason": "The answer accurately reflects the context, describing HPA\u2019s monitoring of metrics, threshold comparison, and scaling up or down of pod replicas based on those metrics.",
+      "keyword_hit": 1.0,
+      "latency_s": 25.83,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "question": "How does Kubernetes HPA scale pods?",
+      "recall_at_5": 1.0,
+      "retrieved_filenames": [
+        "pods_autoscale.html",
+        "pods_autoscale.html",
+        "pods_autoscale.html",
+        "pods_autoscale.html",
+        "pods_autoscale.html"
+      ],
+      "top_vector_score": 0.8195379
+    },
+    {
+      "answer": "A CronJob is a lightweight wrapper around a Kubernetes Job that adds scheduling capability. It automatically creates Job objects according to a defined schedule, allowing you to run tasks repeatedly at specific times\u202f[4].  \n\nThe schedule is expressed with the standard cron syntax in the\u202f`schedule`\u202ffield (minute\u202fhour\u202fday\u2011of\u2011month\u202fmonth\u202fday\u2011of\u2011week). For example, `\"*/1 * * * *\"` runs the job every minute\u202f[1]. The format supports both full cron expressions and shorthand expressions such as `@hourly`, `@daily`, etc.\u202f[4]",
+      "answers_question": true,
+      "citations": {
+        "all_valid": true,
+        "cited": [
+          4,
+          1,
+          4
+        ],
+        "has_citation": true
+      },
+      "error": null,
+      "faithful": true,
+      "found": true,
+      "id": "q02",
+      "judge_error": null,
+      "judge_reason": "All statements about CronJob being a wrapper around Jobs, its automatic creation of Jobs, and its scheduling via standard cron syntax and examples are directly supported by the provided context.",
+      "keyword_hit": 1.0,
+      "latency_s": 3.36,
+      "mrr": 0.5,
+      "ndcg_at_5": 0.4912596920895758,
+      "question": "What is a CronJob in Kubernetes and how is it scheduled?",
+      "recall_at_5": 1.0,
+      "retrieved_filenames": [
+        "monitor_job.docx",
+        "cronjobs.docx",
+        "monitor_job.docx",
+        "cronjobs.docx",
+        "cronjobs.docx"
+      ],
+      "top_vector_score": 0.8064547
+    },
+    {
+      "answer": "You monitor a Kubernetes Job by repeatedly querying its status with\u202fkubectl.  \nFirst, run\u202f`kubectl get jobs`\u202fto see a summary that includes the job name, how many pods have completed versus the desired completions, the duration of the run, and the age of the job\u202f[2]. If the\u202fCOMPLETIONS\u202fcolumn shows\u202f0/1\u202fthe job is still running; you can rerun the command every few seconds until it changes to\u202f1/1\u202fto watch progress in real\u2011time\u202f[5].  \n\nFor more detail, use\u202f`kubectl describe job <job\u2011name>`\u202fwhich shows labels, selector details, parallelism settings, the status of each pod, and an\u202fEvents\u202fsection that records pod creation and completion\u202f[2].  \n\nTo see the actual work being done, list the pods created by the job (e.g.,\u202f`kubectl get pods -l job-name=<job\u2011name>`\u202for\u202f`kubectl get pods --show-labels`)\u202f[5] and then view or follow their logs with\u202f`kubectl logs <pod\u2011name>`\u202for\u202f`kubectl logs -f <pod\u2011name>`\u202fto watch output as it increments\u202f[4].  \n\nTogether, these commands let you track a job\u2019s progress from high\u2011level completion counts down to the live log output of its pods.",
+      "answers_question": true,
+      "citations": {
+        "all_valid": true,
+        "cited": [
+          2,
+          5,
+          2,
+          5,
+          4
+        ],
+        "has_citation": true
+      },
+      "error": null,
+      "faithful": false,
+      "found": true,
+      "id": "q03",
+      "judge_error": null,
+      "judge_reason": "The answer mentions using 'kubectl logs' to view pod logs, which is not supported by the provided context.",
+      "keyword_hit": 1.0,
+      "latency_s": 13.39,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "question": "How do you monitor the progress of a Kubernetes Job?",
+      "recall_at_5": 1.0,
+      "retrieved_filenames": [
+        "monitor_job.docx",
+        "monitor_job.docx",
+        "monitor_job.docx",
+        "monitor_job.docx",
+        "monitor_job.docx"
+      ],
+      "top_vector_score": 0.793147
+    },
+    {
+      "answer": "A parallel work queue in Kubernetes is a pattern for fine\u2011grained parallel processing where a Kubernetes\u202fJob launches many worker Pods that all read tasks from a shared queue (commonly backed by Redis). Each Pod pulls a unit of work, processes it, and then returns to the queue for another item, continuing until the queue is empty, at which point the workers exit successfully\u202f[1][3].",
+      "answers_question": true,
+      "citations": {
+        "all_valid": true,
+        "cited": [
+          1,
+          3
+        ],
+        "has_citation": true
+      },
+      "error": null,
+      "faithful": true,
+      "found": true,
+      "id": "q04",
+      "judge_error": null,
+      "judge_reason": "The answer accurately describes the parallel work queue pattern using a Kubernetes Job and shared queue as detailed in the provided context.",
+      "keyword_hit": 1.0,
+      "latency_s": 10.94,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.5087403079104241,
+      "question": "What is a parallel work queue in Kubernetes?",
+      "recall_at_5": 1.0,
+      "retrieved_filenames": [
+        "parallel_work_queue.txt",
+        "monitor_job.docx",
+        "parallel_work_queue.txt",
+        "cronjobs.docx",
+        "monitor_job.docx"
+      ],
+      "top_vector_score": 0.81879926
+    },
+    {
+      "answer": "You can automate Databricks job creation and management by using the developer tools that Databricks provides:\n\n* **Databricks CLI** \u2013 a command\u2011line interface that wraps the Jobs REST API. It lets you script one\u2011off tasks (e.g.,\u202f`databricks jobs create`, `databricks jobs get`, `databricks jobs delete`) and invoke the API directly from the shell\u202f[1][3].\n* **Databricks SDKs** \u2013 language\u2011specific libraries (Python, Java, Go, R) that let you write code to create, update, and run jobs programmatically. The SDK abstracts the REST calls, so you can build custom workflows or run jobs from notebooks or local machines\u202f[1][5].\n* **Databricks REST API** \u2013 the underlying HTTP API that all other tools call. You can use it directly when an SDK for your language is not available\u202f[3].\n* **CI/CD integrations** \u2013 for automated deployment you can package jobs in **Databricks Asset Bundles** (YAML/JSON) or manage them with the **Databricks Terraform provider** (or Terraform CDKTF)\u202f[1][4].\n\nTogether, these tools let you script job creation, retrieve job details, trigger runs (via schedule, `run\u2011now`, or `submit`), and clean up jobs as part of automated pipelines.",
+      "answers_question": true,
+      "citations": {
+        "all_valid": true,
+        "cited": [
+          1,
+          3,
+          1,
+          5,
+          3,
+          1,
+          4
+        ],
+        "has_citation": true
+      },
+      "error": null,
+      "faithful": true,
+      "found": true,
+      "id": "q05",
+      "judge_error": null,
+      "judge_reason": "All statements are supported by the retrieved document and the answer directly explains how to automate job creation and management.",
+      "keyword_hit": 1.0,
+      "latency_s": 13.11,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "question": "How do you automate job creation and management in Databricks?",
+      "recall_at_5": 1.0,
+      "retrieved_filenames": [
+        "job_management.html",
+        "job_management.html",
+        "job_management.html",
+        "job_management.html",
+        "job_management.html"
+      ],
+      "top_vector_score": 0.8572192
+    },
+    {
+      "answer": "Kubernetes is built from two high\u2011level layers \u2013 a control\u2011plane layer (the **master(s)**) and a worker\u2011node layer (the **nodes**) [1].\n\nThe master layer hosts the core control\u2011plane components that make all cluster decisions: the **kube\u2011apiserver**, **etcd**, **kube\u2011controller\u2011manager**, **cloud\u2011controller\u2011manager**, and **kube\u2011scheduler** [3].\n\nEach node runs a minimal agent stack that enables it to run workloads: the **kubelet** (which manages pod lifecycles), the **kube\u2011proxy** (which sets up networking rules and load\u2011balancing), and a **container\u2011runtime** such as containerd, cri\u2011o, or Docker that actually runs the containers [4].\n\nTogether, these master and node components form the main architectural building blocks of a Kubernetes cluster [1][3][4].",
+      "answers_question": true,
+      "citations": {
+        "all_valid": true,
+        "cited": [
+          1,
+          3,
+          4,
+          1,
+          3,
+          4
+        ],
+        "has_citation": true
+      },
+      "error": null,
+      "faithful": true,
+      "found": true,
+      "id": "q06",
+      "judge_error": null,
+      "judge_reason": "The answer lists the master and node components exactly as described in the provided context, directly addressing the architecture components question.",
+      "keyword_hit": 1.0,
+      "latency_s": 19.15,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.8687949224876582,
+      "question": "What are the main components of the Kubernetes architecture?",
+      "recall_at_5": 1.0,
+      "retrieved_filenames": [
+        "architecture.pptx",
+        "architecture.pptx",
+        "architecture.pptx",
+        "architecture.pptx",
+        "monitor_job.docx"
+      ],
+      "top_vector_score": 0.78284955
+    },
+    {
+      "answer": "A neural network is an artificial computing system made up of a large number of simple, neuron\u2011like processing units that operate massively in parallel and have the capability to learn from experience.  It is inspired by biological neural systems, which consist of many simple nerve cells that can reorganize themselves, allowing the network to adapt, generalize to new problems, and tolerate noisy inputs without explicit programming of the solution\u202f[4].",
+      "answers_question": true,
+      "citations": {
+        "all_valid": true,
+        "cited": [
+          4
+        ],
+        "has_citation": true
+      },
+      "error": null,
+      "faithful": true,
+      "found": true,
+      "id": "q07",
+      "judge_error": null,
+      "judge_reason": "All statements in the answer are directly supported by the retrieved text describing neural networks as parallel collections of simple units that learn, generalize, and are biologically inspired.",
+      "keyword_hit": 0.5,
+      "latency_s": 14.15,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "question": "What is a neural network?",
+      "recall_at_5": 1.0,
+      "retrieved_filenames": [
+        "A Brief Introduction to Neural Networks (neuronalenetze-en-zeta2-2col-dkrieselcom).pdf",
+        "A Brief Introduction to Neural Networks (neuronalenetze-en-zeta2-2col-dkrieselcom).pdf",
+        "A Brief Introduction to Neural Networks (neuronalenetze-en-zeta2-2col-dkrieselcom).pdf",
+        "A Brief Introduction to Neural Networks (neuronalenetze-en-zeta2-2col-dkrieselcom).pdf",
+        "A Brief Introduction to Neural Networks (neuronalenetze-en-zeta2-2col-dkrieselcom).pdf"
+      ],
+      "top_vector_score": 0.7354099
+    },
+    {
+      "answer": "A perceptron is a feed\u2011forward network that contains a retina used only for data acquisition and that has fixed\u2011weighted connections to the first neuron layer (the input layer), followed by at least one layer of trainable weights\u202f[4].  \nIt is typically described as a weighted sum of its inputs that is passed through a non\u2011linear activation function; in the classic binary perceptron this activation is a threshold function producing outputs such as\u202f{0,\u202f1}\u202for\u202f{\u22121,\u202f1}\u202f[1].  \nThe term is usually applied to a feed\u2011forward network without recurrence, where the input (retina) layer has static weights and the weights of all other layers can be changed during learning\u202f[1].  \nThe original perceptron was introduced by Frank\u202fRosenblatt in\u202f1958\u202f[1].  \nBecause the input layer is fully connected to the next layer and each subsequent layer is completely linked to the following one, a perceptron can be a single\u2011layer architecture (one trainable weight layer) or, when it contains two or more trainable weight layers, a multilayer perceptron\u202f[5]\u202f[2].",
+      "answers_question": null,
+      "citations": {
+        "all_valid": true,
+        "cited": [
+          4,
+          1,
+          1,
+          1,
+          5,
+          2
+        ],
+        "has_citation": true
+      },
+      "error": null,
+      "faithful": null,
+      "found": true,
+      "id": "q08",
+      "judge_error": "Unterminated string starting at: line 1 column 53 (char 52)",
+      "judge_reason": "",
+      "keyword_hit": 1.0,
+      "latency_s": 42.55,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "question": "What is a perceptron?",
+      "recall_at_5": 1.0,
+      "retrieved_filenames": [
+        "A Brief Introduction to Neural Networks (neuronalenetze-en-zeta2-2col-dkrieselcom).pdf",
+        "A Brief Introduction to Neural Networks (neuronalenetze-en-zeta2-2col-dkrieselcom).pdf",
+        "A Brief Introduction to Neural Networks (neuronalenetze-en-zeta2-2col-dkrieselcom).pdf",
+        "A Brief Introduction to Neural Networks (neuronalenetze-en-zeta2-2col-dkrieselcom).pdf",
+        "A Brief Introduction to Neural Networks (neuronalenetze-en-zeta2-2col-dkrieselcom).pdf"
+      ],
+      "top_vector_score": 0.7560731
+    },
+    {
+      "abstained": true,
+      "answer": "I don't know from the provided documents.",
+      "answer_abstained": true,
+      "error": null,
+      "found": false,
+      "id": "q09",
+      "latency_s": 0.24,
+      "question": "What is the capital of France?",
+      "retrieved_filenames": [],
+      "top_vector_score": 0.41246828
+    },
+    {
+      "abstained": true,
+      "answer": "I don't know from the provided documents.",
+      "answer_abstained": true,
+      "error": null,
+      "found": false,
+      "id": "q10",
+      "latency_s": 0.19,
+      "question": "Who won the FIFA World Cup in 2022?",
+      "retrieved_filenames": [],
+      "top_vector_score": 0.50327873
+    }
+  ]
+}

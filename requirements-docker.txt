@@ -1,0 +1,28 @@
+# Runtime-only dependencies for the Docker image.
+# Verified against the actual imports of the serving path
+# (app/main.py, app/telemetry.py, app/config.py, app/services/retrieval/*,
+# app/services/generation/*, app/services/guardrails/*, streamlit_app.py)
+# on 2026-11-17. The full requirements.txt also installs dev/eval tooling
+# (ragas, deepeval, nemoguardrails, portkey-ai, langfuse, ...) and ingestion
+# tooling (unstructured, pypdf, pdfplumber) that the API/UI never import --
+# those made the image build run 9+ hours without finishing, so they are
+# intentionally left out here. Indexing already ran on the host; the
+# container only serves queries against the existing Qdrant collection.
+#
+# NOTE: torch is installed separately in the Dockerfile from the CPU-only
+# PyTorch index (the default PyPI wheel bundles ~2 GB of CUDA libraries
+# the container never uses). sentence-transformers reuses it.
+
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic>=2.0
+httpx
+streamlit
+logfire[fastapi]
+qdrant-client
+flashrank
+groq
+sentence-transformers
+langchain-google-genai
+google-generativeai

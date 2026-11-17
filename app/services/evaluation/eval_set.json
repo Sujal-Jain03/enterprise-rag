@@ -1,0 +1,99 @@
+{
+  "description": "Gold eval set. expected_source is a substring matched against retrieved chunk filenames (not an exact filename, so renames don't break the eval). expected_keywords is a soft check only \u2014 the LLM judge is the real faithfulness check.",
+  "questions": [
+    {
+      "expected_keywords": [
+        "cpu",
+        "replicas"
+      ],
+      "expected_source": "pods_autoscale",
+      "id": "q01",
+      "in_corpus": true,
+      "question": "How does Kubernetes HPA scale pods?"
+    },
+    {
+      "expected_keywords": [
+        "schedule",
+        "cron"
+      ],
+      "expected_source": "cronjobs",
+      "id": "q02",
+      "in_corpus": true,
+      "question": "What is a CronJob in Kubernetes and how is it scheduled?"
+    },
+    {
+      "expected_keywords": [
+        "status",
+        "kubectl"
+      ],
+      "expected_source": "monitor_job",
+      "id": "q03",
+      "in_corpus": true,
+      "question": "How do you monitor the progress of a Kubernetes Job?"
+    },
+    {
+      "expected_keywords": [
+        "parallel",
+        "queue"
+      ],
+      "expected_source": "parallel_work_queue",
+      "id": "q04",
+      "in_corpus": true,
+      "question": "What is a parallel work queue in Kubernetes?"
+    },
+    {
+      "expected_keywords": [
+        "databricks",
+        "cli"
+      ],
+      "expected_source": "job_management",
+      "id": "q05",
+      "in_corpus": true,
+      "question": "How do you automate job creation and management in Databricks?"
+    },
+    {
+      "expected_keywords": [
+        "node"
+      ],
+      "expected_source": "architecture",
+      "id": "q06",
+      "in_corpus": true,
+      "question": "What are the main components of the Kubernetes architecture?"
+    },
+    {
+      "expected_keywords": [
+        "neuron",
+        "layer"
+      ],
+      "expected_source": "Neural Networks",
+      "id": "q07",
+      "in_corpus": true,
+      "question": "What is a neural network?"
+    },
+    {
+      "expected_keywords": [
+        "perceptron",
+        "neuron"
+      ],
+      "expected_source": "Neural Networks",
+      "id": "q08",
+      "in_corpus": true,
+      "question": "What is a perceptron?"
+    },
+    {
+      "expected_keywords": [],
+      "expected_source": null,
+      "id": "q09",
+      "in_corpus": false,
+      "question": "What is the capital of France?"
+    },
+    {
+      "expected_keywords": [],
+      "expected_source": null,
+      "id": "q10",
+      "in_corpus": false,
+      "question": "Who won the FIFA World Cup in 2022?"
+    }
+  ],
+  "version": 1
+}
